@@ -37,7 +37,8 @@ public class SecurityConfig
     {
         CERTIFICATE,
         KERBEROS,
-        LDAP
+        LDAP,
+        MIXED
     }
 
     @NotNull

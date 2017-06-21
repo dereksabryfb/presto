@@ -17,6 +17,7 @@ import com.facebook.presto.server.security.SecurityConfig.AuthenticationType;
 import com.google.inject.Binder;
 import com.google.inject.Scopes;
 import com.google.inject.multibindings.Multibinder;
+import com.google.inject.name.Names;
 import io.airlift.configuration.AbstractConfigurationAwareModule;
 import io.airlift.http.server.TheServlet;
 
