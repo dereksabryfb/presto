@@ -42,7 +42,7 @@ public class ServerSecurityModule
 
         Set<AuthenticationType> authTypes = buildConfigObject(SecurityConfig.class).getAuthenticationTypes();
         Multibinder<Authenticator> authBinder = newSetBinder(binder, Authenticator.class);
-
+        
         if (authTypes.contains(CERTIFICATE)) {
             authBinder.addBinding().to(CertificateAuthenticator.class).in(Scopes.SINGLETON);
         }
