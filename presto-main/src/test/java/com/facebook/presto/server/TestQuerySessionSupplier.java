@@ -187,8 +187,7 @@ public class TestQuerySessionSupplier
         QuerySessionSupplier sessionSupplier = new QuerySessionSupplier(
                 createTestTransactionManager(),
                 new AllowAllAccessControl(),
-                new SessionPropertyManager()
-        );
+                new SessionPropertyManager());
         Session session = sessionSupplier.createSession(
                 new QueryId("test_query_id"),
                 context);

@@ -145,7 +145,7 @@ public class PrestoCliTests
         launchPrestoCliWithServerArgument("--file", temporayFile.getAbsolutePath());
         assertThat(trimLines(presto.readRemainingOutputLines())).containsAll(nationTableBatchLines);
     }
-    
+
     @Test(groups = CLI, timeOut = TIMEOUT)
     public void shouldHandleSession()
             throws IOException, InterruptedException
