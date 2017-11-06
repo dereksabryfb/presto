@@ -14,9 +14,13 @@
 package com.facebook.presto.resourceGroups.db;
 
 import com.facebook.presto.spi.resourceGroups.ResourceGroupConfigurationManager;
+import com.facebook.presto.spi.resourceGroups.ResourceGroupConfigurationManagerContext;
 import com.google.inject.Binder;
 import com.google.inject.Module;
+import com.google.inject.Provides;
 import com.google.inject.Scopes;
+
+import javax.inject.Singleton;
 
 import static io.airlift.configuration.ConfigBinder.configBinder;
 
@@ -30,5 +34,13 @@ public class DbResourceGroupsModule
         binder.bind(ResourceGroupsDao.class).toProvider(MysqlDaoProvider.class).in(Scopes.SINGLETON);
         binder.bind(DbResourceGroupConfigurationManager.class).in(Scopes.SINGLETON);
         binder.bind(ResourceGroupConfigurationManager.class).to(DbResourceGroupConfigurationManager.class).in(Scopes.SINGLETON);
+    }
+
+    @Provides
+    @Singleton
+    @ForEnvironment
+    public String getEnvironment(ResourceGroupConfigurationManagerContext context)
+    {
+        return context.getEnvironment();
     }
 }
